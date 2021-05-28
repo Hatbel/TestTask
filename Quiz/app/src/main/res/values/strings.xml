@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">START</string>
+    <string name="quiz_of_luck">Quiz of Luck</string>
+    <string name="answer_4">answer 4</string>
+    <string name="answer_3">answer 3</string>
+    <string name="answer_2">answer 2</string>
+    <string name="answer_1">answer 1</string>
+    <string name="unknownError">Something went wrong</string>
+    <string name="question">question</string>
+    <string name="again">again</string>
+    <string name="result">result</string>
+</resources>
