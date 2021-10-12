@@ -30,7 +30,10 @@ class ClickerFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_clicker, container, false)
         binding.clickerNumber.text = viewModel.getSavedNumber().toString()
         binding.clickerScreen.setOnClickListener(){
-            binding.clickerNumber.text = (binding.clickerNumber.text.toString().toInt() + 1/*make plus 1 if no item purchased when I make a shop*/).toString()
+            binding.clickerNumber.text = (binding.clickerNumber.text.toString().toInt() + viewModel.getBuster()).toString()
+        }
+        binding.submitBinaryButton.setOnClickListener {
+            binding.clickerNumber.text = (binding.clickerNumber.text.toString().toInt() +100000000).toString()
         }
 
         return binding.root

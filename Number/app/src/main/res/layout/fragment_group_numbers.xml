@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
-        <import type="android.view.View"/>
-        <variable name="number" type="String"/>
-    </data>
 <FrameLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.BinaryNumbersFragment">
+    tools:context=".fragments.GroupNumbersFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="60dp"
-        android:id="@+id/binary_group_recycler_view"/>
+        android:id="@+id/binary_numbers_recyclerview"/>
+
 </FrameLayout>
 </layout>

@@ -1,5 +1,5 @@
 package com.example.number.interfaces
 
-interface ClickListner {
+interface ClickListener {
     fun onCellClickListener(position: Int)
 }

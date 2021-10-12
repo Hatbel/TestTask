@@ -5,4 +5,9 @@
     <string name="first_number">1</string>
     <string name="submit_binary">Submit Binary</string>
     <string name="unknownError">Something went wrong</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="buy">Do you want to buy it?</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="noMoneyNoHoney">not enough numbers, click more</string>
 </resources>

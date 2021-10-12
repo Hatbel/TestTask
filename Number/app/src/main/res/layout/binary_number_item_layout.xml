@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/shop_item_view"
+        android:id="@+id/binary_numbers_item_view"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,20 +14,8 @@
         android:clickable="true">
 
         <TextView
-            android:id="@+id/name_text_view"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:text="TextView"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/price_text_view"
-            android:layout_width="200dp"
+            android:id="@+id/number_textView"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:text="TextView"
             android:paddingTop="10dp"
@@ -40,10 +26,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ispurchased_image"
-            android:layout_width="wrap_content"
+            android:id="@+id/isFound_image"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 </LinearLayout>
 </layout>

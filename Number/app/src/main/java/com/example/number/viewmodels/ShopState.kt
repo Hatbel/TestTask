@@ -4,9 +4,12 @@ import androidx.paging.PagingData
 import com.example.number.model.ShopEntity
 
 sealed class ShopState {
-    object Idle : ShopState()
+    data class Idle(val shopEntities: List<ShopEntity>) : ShopState()
     object Loading : ShopState()
-    object Shop : ShopState()
+    object PurchaseItem : ShopState()
+    object EnableItem : ShopState()
+    object DeactivateItem : ShopState()
+    object NotEnoughNumbers : ShopState()
     data class Error(val error: String?) : ShopState()
 
 }

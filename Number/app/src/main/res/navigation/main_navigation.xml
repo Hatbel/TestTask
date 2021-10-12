@@ -33,5 +33,14 @@
         android:id="@+id/binaryNumbersFragment"
         android:name="com.example.number.fragments.BinaryNumbersFragment"
         android:label="fragment_binary_numbers"
-        tools:layout="@layout/fragment_binary_numbers" />
+        tools:layout="@layout/fragment_binary_numbers" >
+        <action
+            android:id="@+id/action_binaryNumbersFragment_to_goupNumbersFragment"
+            app:destination="@id/groupNumbersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupNumbersFragment"
+        android:name="com.example.number.fragments.GroupNumbersFragment"
+        android:label="fragment_group_numbers"
+        tools:layout="@layout/fragment_group_numbers" />
 </navigation>

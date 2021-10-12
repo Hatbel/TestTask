@@ -13,8 +13,8 @@ interface BinaryNumberDao {
     @Query("SELECT * FROM BinaryNumberDB where isFound = :isFound")
     suspend fun getFoundBooks(isFound: Boolean): List<BinaryNumberDB>
 
-    @Query("SELECT * FROM BinaryNumberDB where groupId = :id")
-    suspend fun getNumbersByGroupId(id: Int): List<BinaryNumberDB>
+    @Query("SELECT * FROM BinaryNumberDB where groupId = :id LIMIT :size")
+    suspend fun getNumbersByGroupId(size: Int, id: Int): List<BinaryNumberDB>
 
     @Query("SELECT * FROM BinaryNumberDB where groupId = :id and isFound = :isFound")
     suspend fun getFoundNumbersFromCategory(id: Int, isFound: Boolean): List<BinaryNumberDB>

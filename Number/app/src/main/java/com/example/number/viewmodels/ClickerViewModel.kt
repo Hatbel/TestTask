@@ -13,4 +13,5 @@ class ClickerViewModel(private val sessionManager: SessionManager) : ViewModel()
     fun saveClickerNumber(number : Int){
         sessionManager.counterSaver = number
     }
+    fun getBuster() = sessionManager.buster
 }
