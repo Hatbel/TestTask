@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.number.R
 import com.example.number.databinding.FragmentClickerBinding
+import com.example.number.viewmodels.ClickerState
 import com.example.number.viewmodels.ClickerViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -33,9 +35,19 @@ class ClickerFragment : Fragment() {
             binding.clickerNumber.text = (binding.clickerNumber.text.toString().toInt() + viewModel.getBuster()).toString()
         }
         binding.submitBinaryButton.setOnClickListener {
-            binding.clickerNumber.text = (binding.clickerNumber.text.toString().toInt() +100000000).toString()
+            viewModel.saveClickerNumber(binding.clickerNumber.text.toString().toInt())
+            viewModel.checkNumber()
         }
-
+        viewModel.state.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is ClickerState.NumberNotFound -> {
+                    //Toast
+                }
+                is ClickerState.NumberFound -> {
+                    //Toast
+                }
+            }
+        })
         return binding.root
     }
 
@@ -53,6 +65,5 @@ class ClickerFragment : Fragment() {
         super.onResume()
         binding.clickerNumber.text = viewModel.getSavedNumber().toString()
     }
-
 
 }

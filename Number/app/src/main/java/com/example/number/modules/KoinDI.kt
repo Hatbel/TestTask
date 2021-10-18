@@ -7,6 +7,7 @@ import com.example.number.repository.BinaryNumbersPagingDataSource
 import com.example.number.repository.NumbersRepository
 import com.example.number.viewmodels.BinaryNumbersViewModel
 import com.example.number.viewmodels.ClickerViewModel
+import com.example.number.viewmodels.GroupNumbersViewModel
 import com.example.number.viewmodels.ShopViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
@@ -30,7 +31,8 @@ val appModule = module {
 }
 
 val viewModelsModule = module {
-    viewModel { ClickerViewModel(get()) }
+    viewModel { ClickerViewModel(get(), get()) }
     viewModel { ShopViewModel(get(), get()) }
     viewModel { BinaryNumbersViewModel(get(), get(), get()) }
+    viewModel { GroupNumbersViewModel(get(), get(), get()) }
 }

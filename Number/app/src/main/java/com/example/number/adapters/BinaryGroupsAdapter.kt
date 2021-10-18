@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.number.R
 import com.example.number.databinding.BinaryGroupLayotBinding
 import com.example.number.interfaces.ClickListener
 import com.example.number.model.BinaryNumberGroup
@@ -36,6 +37,11 @@ class BinaryGroupsAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(binaryGroup: BinaryNumberGroup?) {
             binding.groupNumberTextView.text = binaryGroup?.groupId.toString()
+            if(binaryGroup?.isCollected == true){
+                binding.isFoundImage.setImageResource(R.mipmap.ic_launcher)
+            } else {
+                binding.isFoundImage.setImageResource(R.mipmap.anime_back_round)
+            }
             binding.bingroupItemView.setOnClickListener {
                 if (binaryGroup != null) {
                     cellClickListener.onCellClickListener(binaryGroup.groupId)

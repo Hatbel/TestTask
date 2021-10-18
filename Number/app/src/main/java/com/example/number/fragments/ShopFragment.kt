@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.number.R
 import com.example.number.adapters.ShopAdapter
@@ -40,6 +41,9 @@ class ShopFragment : Fragment(), ClickListener {
         navController = NavHostFragment.findNavController(this)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shop, container, false)
+        binding.shopRecyclerView.addItemDecoration( DividerItemDecoration(requireContext(),
+            DividerItemDecoration.VERTICAL)
+        )
         adapter = ShopAdapter(arrayListOf(), this)
         binding.shopRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())

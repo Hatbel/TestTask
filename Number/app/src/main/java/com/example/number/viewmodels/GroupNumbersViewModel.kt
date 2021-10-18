@@ -15,6 +15,6 @@ class GroupNumbersViewModel(
     private val repository: NumbersRepository,
     private var binaryNumbersDataSource: BinaryNumbersPagingDataSource
 ) : ViewModel() {
-    var binaryGroups = Pager(PagingConfig(25)) { binaryNumbersDataSource }
+    var binaryNumbers = Pager(PagingConfig(25)) { binaryNumbersDataSource }
         .flow.cachedIn(viewModelScope)
 }
