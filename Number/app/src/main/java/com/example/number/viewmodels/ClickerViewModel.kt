@@ -8,6 +8,7 @@ import com.example.number.model.BinaryNumberDB
 import com.example.number.modules.SessionManager
 import com.example.number.repository.NumbersRepository
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class ClickerViewModel(
     private val sessionManager: SessionManager,
@@ -29,6 +30,17 @@ class ClickerViewModel(
     }
 
     fun getBuster() = sessionManager.buster
+
+    fun getStateForAnim(){
+        when (Random.nextInt(0, 5)) {
+            0 -> _state.postValue(ClickerState.FirstForAnim)
+            1 -> _state.postValue(ClickerState.SecondForAnim)
+            2 -> _state.postValue(ClickerState.ThirdForAnim)
+            3 -> _state.postValue(ClickerState.ForthForAnim)
+            4 -> _state.postValue(ClickerState.FifthForAnim)
+        }
+
+    }
 
     fun checkNumber() {
         viewModelScope.launch {

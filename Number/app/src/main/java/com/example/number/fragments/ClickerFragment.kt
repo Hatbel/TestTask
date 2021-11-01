@@ -1,20 +1,21 @@
 package com.example.number.fragments
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.example.number.R
 import com.example.number.databinding.FragmentClickerBinding
 import com.example.number.viewmodels.ClickerState
 import com.example.number.viewmodels.ClickerViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
+
 
 class ClickerFragment : Fragment() {
 
@@ -31,8 +32,25 @@ class ClickerFragment : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_clicker, container, false)
         binding.clickerNumber.text = viewModel.getSavedNumber().toString()
-        binding.clickerScreen.setOnClickListener(){
-            binding.clickerNumber.text = (binding.clickerNumber.text.toString().toInt() + viewModel.getBuster()).toString()
+        val animOneFirst: AnimatedVectorDrawableCompat? =
+            AnimatedVectorDrawableCompat.create(requireContext(), R.drawable.animatorvectordrawable)
+        binding.animationOneImageView.setImageDrawable(animOneFirst)
+        val animOneSecond: AnimatedVectorDrawableCompat? =
+            AnimatedVectorDrawableCompat.create(requireContext(), R.drawable.animatorvectordrawable)
+        binding.animationOneSecondImageView.setImageDrawable(animOneSecond)
+        val animOneThird: AnimatedVectorDrawableCompat? =
+            AnimatedVectorDrawableCompat.create(requireContext(), R.drawable.animatorvectordrawable)
+        binding.animationOneThirdImageView.setImageDrawable(animOneThird)
+        val animZeroFirst: AnimatedVectorDrawableCompat? =
+            AnimatedVectorDrawableCompat.create(requireContext(), R.drawable.animator_for_zero)
+        binding.animationZeroImageView.setImageDrawable(animZeroFirst)
+        val animZeroSecond: AnimatedVectorDrawableCompat? =
+            AnimatedVectorDrawableCompat.create(requireContext(), R.drawable.animator_for_zero)
+        binding.animationZeroSecondImageView.setImageDrawable(animZeroSecond)
+        binding.clickerScreen.setOnClickListener() {
+            viewModel.getStateForAnim()
+            binding.clickerNumber.text =
+                (binding.clickerNumber.text.toString().toInt() + viewModel.getBuster()).toString()
         }
         binding.submitBinaryButton.setOnClickListener {
             viewModel.saveClickerNumber(binding.clickerNumber.text.toString().toInt())
@@ -46,8 +64,24 @@ class ClickerFragment : Fragment() {
                 is ClickerState.NumberFound -> {
                     //Toast
                 }
+                is ClickerState.FirstForAnim -> {
+                    animOneFirst?.start()
+                }
+                is ClickerState.SecondForAnim -> {
+                    animOneSecond?.start()
+                }
+                is ClickerState.ThirdForAnim -> {
+                    animOneThird?.start()
+                }
+                is ClickerState.ForthForAnim -> {
+                    animZeroFirst?.start()
+                }
+                is ClickerState.FifthForAnim -> {
+                    animZeroSecond?.start()
+                }
             }
         })
+
         return binding.root
     }
 

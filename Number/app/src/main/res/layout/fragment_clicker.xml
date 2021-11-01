@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="android.view.View"/>
         <variable name="number" type="String"/>
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/clicker_screen"
@@ -36,6 +37,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.88" />
+
+    <ImageView
+        android:id="@+id/animation_one_second_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/submit_binary_button"
+        app:layout_constraintEnd_toStartOf="@+id/animation_one_third_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clicker_number"
+        app:srcCompat="@drawable/animatorvectordrawable" />
+
+    <ImageView
+        android:id="@+id/animation_one_third_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/submit_binary_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clicker_number"
+        app:srcCompat="@drawable/animatorvectordrawable" />
+
+    <ImageView
+        android:id="@+id/animation_zero_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/submit_binary_button"
+        app:layout_constraintEnd_toStartOf="@+id/animation_one_image_view"
+        app:layout_constraintStart_toEndOf="@+id/animation_one_third_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/clicker_number"
+        app:srcCompat="@drawable/animator_for_zero" />
+
+    <ImageView
+        android:id="@+id/animation_zero_second_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/submit_binary_button"
+        app:layout_constraintEnd_toStartOf="@+id/animation_one_third_image_view"
+        app:layout_constraintStart_toEndOf="@+id/animation_one_second_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/clicker_number"
+        app:srcCompat="@drawable/animator_for_zero" />
+
+    <ImageView
+        android:id="@+id/animation_one_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/submit_binary_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/animation_one_third_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/clicker_number"
+        app:srcCompat="@drawable/animatorvectordrawable" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
