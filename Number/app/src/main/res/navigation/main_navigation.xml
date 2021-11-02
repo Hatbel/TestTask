@@ -11,14 +11,10 @@
         tools:layout="@layout/fragment_clicker" >
         <action
             android:id="@+id/action_clickerFragment_to_shopFragment"
-            app:enterAnim="@animator/slide_left_animation"
-            app:exitAnim="@animator/slide_left_animation"
-            app:popEnterAnim="@animator/slide_left_animation"
-            app:popExitAnim="@animator/slide_left_animation"
             app:destination="@id/shopFragment" />
         <action
             android:id="@+id/action_clickerFragment_to_binaryNumbersFragment"
-            app:destination="@id/binaryNumbersFragment" />
+            app:destination="@id/binaryNumbersFragment"/>
         <action
             android:id="@+id/action_clickerFragment_to_treeFragment"
             app:destination="@id/treeFragment" />

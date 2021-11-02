@@ -1,19 +1,12 @@
 package com.example.number
 
-import ZoomOutPageTransformer
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.*
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
-import com.example.number.databinding.ActivityMainBinding
-import com.example.number.fragments.BinaryNumbersFragment
-import com.example.number.fragments.ClickerFragment
-import com.example.number.fragments.ShopFragment
-import com.example.number.fragments.TreeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 private const val NUM_PAGES = 4
@@ -30,6 +23,33 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(
             navController
         )
+        val options = NavOptions.Builder()
+            .setLaunchSingleTop(true)
+            .setEnterAnim(R.anim.slide_in_left)
+            .setExitAnim(R.anim.slide_in_right)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_in_right)
+            .setPopUpTo(navController.graph.startDestination, false)
+            .build()
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.treeFragment -> {
+                    navController.navigate(R.id.treeFragment,null,options)
+                }
+                R.id.shopFragment -> {
+                    navController.navigate(R.id.shopFragment,null,options)
+                }
+                R.id.binaryNumbersFragment -> {
+                    navController.navigate(R.id.binaryNumbersFragment,null,options)
+                }
+                R.id.clickerFragment -> {
+                    navController.navigate(R.id.clickerFragment,null,options)
+                }
+                R.id.groupNumbersFragment -> {
+                    navController.navigate(R.id.groupNumbersFragment,null,options)
+                }
+            }
+            true
+        }
     }
-
 }
