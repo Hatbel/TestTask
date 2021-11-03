@@ -12,14 +12,12 @@
         android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:clickable="true">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/name_text_view"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:text="TextView"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingStart="20dp"
@@ -31,7 +29,6 @@
             android:id="@+id/price_text_view"
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:text="TextView"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingStart="60dp"
@@ -43,7 +40,7 @@
             android:id="@+id/ispurchased_image"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            app:srcCompat="@mipmap/anime_back_round" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </LinearLayout>
 </layout>

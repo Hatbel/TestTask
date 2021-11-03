@@ -37,8 +37,6 @@ class ShopFragment : Fragment(), ClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        navController = NavHostFragment.findNavController(this)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shop, container, false)
         binding.shopRecyclerView.addItemDecoration( DividerItemDecoration(requireContext(),
@@ -79,10 +77,11 @@ class ShopFragment : Fragment(), ClickListener {
                     showError(resources.getString(R.string.unknownError)).show()
                 }
                 is ShopState.Loading -> {
-
+                    binding.shopRecyclerView.visibility = View.GONE
                 }
                 is ShopState.Idle -> {
                     adapter.addBooks(it.shopEntities as MutableList<ShopEntity>)
+                    binding.shopRecyclerView.visibility = View.VISIBLE
                 }
                 else -> {
                     showError(resources.getString(R.string.unknownError)).show()

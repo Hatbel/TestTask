@@ -21,6 +21,7 @@ class ShopViewModel(
 
     init {
         viewModelScope.launch {
+            _state.postValue(ShopState.Loading)
             shopEntities.clear()
             shopEntities.addAll(repository.getAllShopEntities(25))
             _state.postValue(ShopState.Idle(shopEntities))

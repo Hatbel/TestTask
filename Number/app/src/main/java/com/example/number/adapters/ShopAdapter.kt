@@ -19,19 +19,21 @@ class ShopAdapter(
         viewType: Int
     ): DataViewHolder {
         return DataViewHolder(
-            ShopItemLayoutBinding.inflate(LayoutInflater.from(parent.context)), cellClickListener
+            ShopItemLayoutBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bind(shopEntities[position])
+        holder.itemView.setOnClickListener {
+            cellClickListener.onCellClickListener(shopEntities[position].id)
+        }
     }
 
     override fun getItemCount(): Int = shopEntities.size
 
     class DataViewHolder(
         private val binding: ShopItemLayoutBinding,
-        private val cellClickListener: ClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(shopEntity: ShopEntity?) {
             binding.nameTextView.text = shopEntity?.name
@@ -44,11 +46,6 @@ class ShopAdapter(
             if (shopEntity?.isPurchased == true) binding.priceTextView.visibility =
                 View.INVISIBLE else binding.priceTextView.visibility =
                 View.VISIBLE
-            binding.shopItemView.setOnClickListener {
-                if (shopEntity != null) {
-                    cellClickListener.onCellClickListener(shopEntity.id)
-                }
-            }
         }
     }
 
