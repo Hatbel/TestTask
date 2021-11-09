@@ -22,4 +22,5 @@ class NumbersRepository(
     suspend fun getNumbersByGroupId(groupId: Int) = binaryNumberDao.getNumbersByGroupId(groupId)
     suspend fun getGroupById(groupId: Int) = binaryGroupDao.getBinaryNumberGroupById(groupId)
     suspend fun updateGroupId(group: BinaryNumberGroup) = binaryGroupDao.updateGroup(group)
+    suspend fun getBinaryNumbersGroups() = binaryGroupDao.getBinaryNumbersGroups(40)
 }

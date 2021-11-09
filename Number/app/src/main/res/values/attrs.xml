@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BinaryTree">
+        <attr name="leaf1" format="color" />
+        <attr name="leaf2" format="color" />
+        <attr name="leaf3" format="color" />
+        <attr name="leaf4" format="color" />
+        <attr name="leaf5" format="color" />
+        <attr name="leaf6" format="color" />
+        <attr name="leaf7" format="color" />
+        <attr name="leaf8" format="color" />
+        <attr name="leaf9" format="color" />
+        <attr name="leaf10" format="color" />
+        <attr name="leaf11" format="color" />
+        <attr name="leaf12" format="color" />
+        <attr name="leaf13" format="color" />
+        <attr name="leaf14" format="color" />
+        <attr name="leaf15" format="color" />
+        <attr name="leaf16" format="color" />
+        <attr name="leaf17" format="color" />
+        <attr name="leaf18" format="color" />
+        <attr name="leaf19" format="color" />
+        <attr name="leaf20" format="color" />
+        <attr name="leaf21" format="color" />
+        <attr name="leaf22" format="color" />
+        <attr name="leaf23" format="color" />
+        <attr name="leaf24" format="color" />
+        <attr name="leaf25" format="color" />
+        <attr name="leaf26" format="color" />
+        <attr name="leaf27" format="color" />
+        <attr name="leaf28" format="color" />
+        <attr name="leaf29" format="color" />
+        <attr name="leaf30" format="color" />
+        <attr name="leaf31" format="color" />
+        <attr name="leaf32" format="color" />
+        <attr name="leaf33" format="color" />
+        <attr name="leaf34" format="color" />
+        <attr name="leaf35" format="color" />
+        <attr name="leaf36" format="color" />
+        <attr name="leaf37" format="color" />
+        <attr name="leaf38" format="color" />
+        <attr name="leaf39" format="color" />
+        <attr name="leaf40" format="color" />
+    </declare-styleable>
+</resources>

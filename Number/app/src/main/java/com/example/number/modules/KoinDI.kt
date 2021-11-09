@@ -5,10 +5,7 @@ import com.example.number.database.LocalDataBase
 import com.example.number.repository.BinaryGroupDataSource
 import com.example.number.repository.BinaryNumbersPagingDataSource
 import com.example.number.repository.NumbersRepository
-import com.example.number.viewmodels.BinaryNumbersViewModel
-import com.example.number.viewmodels.ClickerViewModel
-import com.example.number.viewmodels.GroupNumbersViewModel
-import com.example.number.viewmodels.ShopViewModel
+import com.example.number.viewmodels.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -28,6 +25,7 @@ val appModule = module {
     single { SessionManager(androidContext()) }
     single { BinaryGroupDataSource(get()) }
     single { BinaryNumbersPagingDataSource(get(), get()) }
+    single { ThemeHelper(androidContext()) }
 }
 
 val viewModelsModule = module {
@@ -35,4 +33,5 @@ val viewModelsModule = module {
     viewModel { ShopViewModel(get(), get()) }
     viewModel { BinaryNumbersViewModel(get(), get(), get()) }
     viewModel { GroupNumbersViewModel(get(), get(), get()) }
+    viewModel { TreeViewModel(get(), get(), get()) }
 }
