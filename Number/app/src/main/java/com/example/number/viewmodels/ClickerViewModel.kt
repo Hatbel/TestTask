@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.number.model.BinaryNumberDB
+import com.example.number.model.BinaryNumberGroup
 import com.example.number.modules.SessionManager
 import com.example.number.repository.NumbersRepository
 import kotlinx.coroutines.launch
@@ -20,9 +21,8 @@ class ClickerViewModel(
         get() = _state
 
     fun getSavedNumber(): Int {
-        return if (!sessionManager.counterSaver.equals(null)) {
-            sessionManager.counterSaver
-        } else 1
+        return sessionManager.counterSaver
+
     }
 
     fun saveClickerNumber(number: Int) {
@@ -40,6 +40,24 @@ class ClickerViewModel(
             4 -> _state.postValue(ClickerState.FifthForAnim)
         }
 
+    }
+
+    fun updateGroups() {
+        viewModelScope.launch {
+            var group: BinaryNumberGroup
+            for (groupId in 1..40) {
+                var isFoundAmount = 0
+                val numbersInGroup = repository.getNumbersByGroupId(groupId)
+                group = repository.getGroupById(groupId)
+                for (number: BinaryNumberDB in numbersInGroup)
+                    if (number.isFound) isFoundAmount += 1
+                if (isFoundAmount == 25) {
+                    group.isCollected = true
+                }
+                group.collectedAmount = isFoundAmount
+                repository.updateGroupId(group)
+            }
+        }
     }
 
     fun checkNumber() {

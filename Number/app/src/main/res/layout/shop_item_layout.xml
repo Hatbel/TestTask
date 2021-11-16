@@ -40,7 +40,7 @@
             android:id="@+id/ispurchased_image"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@mipmap/anime_back_round" />
+            app:srcCompat="@drawable/ic_circle_small" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </LinearLayout>
 </layout>

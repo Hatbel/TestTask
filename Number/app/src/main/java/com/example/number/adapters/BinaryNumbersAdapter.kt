@@ -37,9 +37,9 @@ class BinaryNumbersAdapter(
         fun bind(binaryNumber: BinaryNumberDB?) {
             binding.numberTextView.text = binaryNumber?.binaryNumber.toString()
             if(binaryNumber?.isFound == true){
-                binding.isFoundImage.setImageResource(R.mipmap.ic_launcher)
+                binding.isFoundImage.setImageResource(R.drawable.ic_check)
             } else {
-                binding.isFoundImage.setImageResource(R.mipmap.anime_back_round)
+                binding.isFoundImage.setImageResource(R.drawable.ic_circle_small)
             }
             binding.binaryNumbersItemView.setOnClickListener {
                 if (binaryNumber != null) {

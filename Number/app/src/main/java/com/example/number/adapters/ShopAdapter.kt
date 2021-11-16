@@ -39,9 +39,9 @@ class ShopAdapter(
             binding.nameTextView.text = shopEntity?.name
             binding.priceTextView.text = shopEntity?.value.toString()
             if (shopEntity?.isActive == true) {
-                binding.ispurchasedImage.setImageResource(R.mipmap.ic_launcher)
+                binding.ispurchasedImage.setImageResource(R.drawable.ic_check)
             } else {
-                binding.ispurchasedImage.setImageResource(R.mipmap.anime_back_round)
+                binding.ispurchasedImage.setImageResource(R.drawable.ic_circle_small)
             }
             if (shopEntity?.isPurchased == true) binding.priceTextView.visibility =
                 View.INVISIBLE else binding.priceTextView.visibility =

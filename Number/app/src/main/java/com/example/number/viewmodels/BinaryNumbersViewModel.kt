@@ -6,6 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.example.number.model.BinaryNumberDB
+import com.example.number.model.BinaryNumberGroup
 import com.example.number.modules.SessionManager
 import com.example.number.repository.BinaryGroupDataSource
 import com.example.number.repository.NumbersRepository
@@ -16,24 +17,8 @@ class BinaryNumbersViewModel(
     private val repository: NumbersRepository,
     private var binaryGroupDataSource: BinaryGroupDataSource
 ) : ViewModel() {
-    var binaryGroups = Pager(PagingConfig(20)) { binaryGroupDataSource }
+    var binaryGroups = Pager(PagingConfig(15)) { binaryGroupDataSource }
         .flow.cachedIn(viewModelScope)
-
-    init {
-        viewModelScope.launch {
-            for(groupId in 1..40){
-                var isFoundAmount = 0
-                val numbersInGroup = repository.getNumbersByGroupId(groupId)
-                for(number: BinaryNumberDB in numbersInGroup)
-                    if(number.isFound) isFoundAmount+=1
-                if(isFoundAmount == 25){
-                    val group = repository.getGroupById(groupId)
-                    group.isCollected = true
-                    repository.updateGroupId(group)
-                }
-            }
-        }
-    }
 
     fun saveGroupId(id: Int){
         sessionManager.groupId = id

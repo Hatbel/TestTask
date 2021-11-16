@@ -9,7 +9,5 @@ data class BinaryNumberGroup(
     var groupId: Int,
     var isCollected: Boolean = false,
     var collectedAmount: Int,
-    var isBusterActive: Boolean = false,
-    var busterName: String,
-    var buster: String
+    var isBusterActive: Boolean = false
 )

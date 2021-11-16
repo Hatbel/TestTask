@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -57,6 +55,13 @@ class ClickerFragment : Fragment() {
         binding.submitBinaryButton.setOnClickListener {
             viewModel.saveClickerNumber(binding.clickerNumber.text.toString().toInt())
             viewModel.checkNumber()
+
+
+            //костыль  костыль  костыль  костыль  костыль  костыль  костыль
+            viewModel.updateGroups()
+            viewModel.updateGroups()
+            //костыль  костыль  костыль  костыль  костыль  костыль  костыль
+
         }
         viewModel.state.observe(viewLifecycleOwner, Observer {
             when (it) {

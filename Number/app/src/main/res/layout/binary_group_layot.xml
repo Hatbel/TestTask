@@ -5,37 +5,56 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#E3E3E3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bingroup_item_view"
             android:layout_width="match_parent"
-            android:layout_height="155dp"
+            android:layout_height="120dp"
+            android:background="@drawable/item_designe"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/item_designe">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/group_number_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:paddingStart="20dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/found_amount_textView"
+                app:layout_constraintStart_toStartOf="@+id/found_progressBar"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/isFound_image"
+            <TextView
+                android:id="@+id/found_amount_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="28dp"
-                android:paddingStart="30dp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/found_progressBar"
+                app:layout_constraintStart_toStartOf="@+id/found_progressBar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/found_progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:indicatorColor="@color/black"
+                app:trackCornerRadius="10dp"
+                android:max="25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/group_number_textView"
-                app:srcCompat="@drawable/ic_launcher_foreground" />
+                app:layout_constraintTop_toBottomOf="@+id/found_amount_textView" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

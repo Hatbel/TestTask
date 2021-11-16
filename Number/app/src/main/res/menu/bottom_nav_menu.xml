@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/binaryNumbersFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_ten"
         android:title="Bins" />
     <item
         android:id="@+id/clickerFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_tap"
         android:title="Clicker" />
     <item
         android:id="@+id/shopFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Store" />
+        android:icon="@drawable/ic_cart"
+        android:title="Shop" />
     <item
         android:id="@+id/treeFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_tree"
         android:title="Tree" />
 </menu>

@@ -1,6 +1,7 @@
 package com.example.number
 
 import android.app.Application
+import com.example.number.modules.SessionManager
 import com.example.number.modules.appModule
 import com.example.number.modules.dataBaseModule
 import com.example.number.modules.viewModelsModule
