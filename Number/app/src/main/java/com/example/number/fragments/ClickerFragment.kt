@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.example.number.R
 import com.example.number.databinding.FragmentClickerBinding
-import com.example.number.viewmodels.ClickerState
+import com.example.number.viewmodels.states.ClickerState
 import com.example.number.viewmodels.ClickerViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 

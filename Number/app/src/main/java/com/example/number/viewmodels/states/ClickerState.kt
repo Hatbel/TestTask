@@ -1,4 +1,4 @@
-package com.example.number.viewmodels
+package com.example.number.viewmodels.states
 
 sealed class ClickerState {
     object NumberFound : ClickerState()

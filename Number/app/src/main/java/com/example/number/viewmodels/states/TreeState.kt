@@ -1,7 +1,6 @@
-package com.example.number.viewmodels
+package com.example.number.viewmodels.states
 
 import android.content.res.Resources
-import com.example.number.model.ShopEntity
 
 sealed class TreeState {
     object Idle : TreeState()

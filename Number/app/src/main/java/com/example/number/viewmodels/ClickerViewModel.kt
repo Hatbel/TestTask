@@ -8,6 +8,7 @@ import com.example.number.model.BinaryNumberDB
 import com.example.number.model.BinaryNumberGroup
 import com.example.number.modules.SessionManager
 import com.example.number.repository.NumbersRepository
+import com.example.number.viewmodels.states.ClickerState
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 

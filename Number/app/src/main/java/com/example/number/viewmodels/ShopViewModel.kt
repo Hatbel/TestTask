@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.number.model.ShopEntity
 import com.example.number.modules.SessionManager
 import com.example.number.repository.NumbersRepository
+import com.example.number.viewmodels.states.ShopState
 import kotlinx.coroutines.launch
 
 class ShopViewModel(

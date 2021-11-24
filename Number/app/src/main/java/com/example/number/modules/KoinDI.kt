@@ -34,4 +34,5 @@ val viewModelsModule = module {
     viewModel { BinaryNumbersViewModel(get(), get(), get()) }
     viewModel { GroupNumbersViewModel(get(), get(), get()) }
     viewModel { TreeViewModel(get(), get(), get()) }
+    viewModel { MainViewModel(get(), get()) }
 }

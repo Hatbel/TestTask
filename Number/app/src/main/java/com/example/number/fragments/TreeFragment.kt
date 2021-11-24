@@ -1,6 +1,8 @@
 package com.example.number.fragments
 
-import android.graphics.drawable.AnimationDrawable
+import android.app.AlertDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.number.R
 import com.example.number.databinding.FragmentTreeBinding
-import com.example.number.viewmodels.TreeState
+import com.example.number.viewmodels.states.TreeState
 import com.example.number.viewmodels.TreeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -20,6 +22,7 @@ class TreeFragment : Fragment() {
 
     private lateinit var binding: FragmentTreeBinding
     private val viewModel by viewModel<TreeViewModel>()
+    private lateinit var alertDialog: AlertDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +42,17 @@ class TreeFragment : Fragment() {
                 }
             }
         })
+        binding.showRulesButton.setOnClickListener{
+            val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
+            builder.setTitle(getString(R.string.goal))
+            builder.setMessage(getString(R.string.goalDescription))
+            builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            val alertDialog = builder.create()
+            alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            alertDialog.show()
+        }
         return binding.root
     }
 }

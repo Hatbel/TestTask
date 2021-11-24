@@ -1,17 +1,20 @@
 package com.example.number
 
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.number.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.koin.android.viewmodel.ext.android.viewModel
 
 private const val NUM_PAGES = 4
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,24 +35,33 @@ class MainActivity : AppCompatActivity() {
             .setPopUpTo(navController.graph.startDestination, false)
             .build()
         bottomNavigationView.setOnItemSelectedListener { item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.treeFragment -> {
-                    navController.navigate(R.id.treeFragment,null,options)
+                    navController.navigate(R.id.treeFragment, null, options)
                 }
                 R.id.shopFragment -> {
-                    navController.navigate(R.id.shopFragment,null,options)
+                    navController.navigate(R.id.shopFragment, null, options)
                 }
                 R.id.binaryNumbersFragment -> {
-                    navController.navigate(R.id.binaryNumbersFragment,null,options)
+                    navController.navigate(R.id.binaryNumbersFragment, null, options)
                 }
                 R.id.clickerFragment -> {
-                    navController.navigate(R.id.clickerFragment,null,options)
+                    navController.navigate(R.id.clickerFragment, null, options)
                 }
                 R.id.groupNumbersFragment -> {
-                    navController.navigate(R.id.groupNumbersFragment,null,options)
+                    navController.navigate(R.id.groupNumbersFragment, null, options)
                 }
             }
             true
         }
+        viewModel.firstOpen()
+        viewModel.addToClicker()
+
+    }
+
+    override fun onStop() {
+        viewModel.saveCloseDate()
+        Log.e("no datasdasdasdasdasdsae yet ", "date = null")
+        super.onStop()
     }
 }

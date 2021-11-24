@@ -7,7 +7,11 @@
     <string name="unknownError">Something went wrong</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
-    <string name="buy">Do you want to buy it?</string>
+    <string name="buy">Are you sure you want to purchase this buster?</string>
     <string name="confirmation">Confirmation</string>
     <string name="noMoneyNoHoney">not enough numbers, click more</string>
+    <string name="confirm">confirm</string>
+    <string name="ok">OK</string>
+    <string name="goal">Goals</string>
+    <string name="goalDescription"> In this game you need to save this tree from dying.\n\nTo save tis tree you need to collect all binary numbers that are lost in decimals.\n\nList of all binaries contain 40 groups of 25 number, when you collect a group you make one digital leaf alive.\n\nEach leaf will help you to gain clicks when you are not in the app by adding numbers each minute.\n\nIn the shop you can buy busters for clicked numbers to help you.\n\nSave this tree</string>
 </resources>

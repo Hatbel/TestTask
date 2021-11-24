@@ -14,11 +14,13 @@
     android:clickable="true">
 
     <TextView
+        android:id="@+id/clicker_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/clicker_number"
-        android:text="@string/first_number"
+        android:fontFamily="@font/atomic_age"
+        android:text="123545156486"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/submit_binary_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

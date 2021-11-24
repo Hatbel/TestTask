@@ -1,6 +1,5 @@
 package com.example.number.viewmodels
 
-import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.number.modules.SessionManager
 import com.example.number.modules.ThemeHelper
 import com.example.number.repository.NumbersRepository
+import com.example.number.viewmodels.states.TreeState
 import kotlinx.coroutines.launch
 
 class TreeViewModel(

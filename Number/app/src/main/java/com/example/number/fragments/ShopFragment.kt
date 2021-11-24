@@ -1,6 +1,8 @@
 package com.example.number.fragments
 
 import android.app.AlertDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +11,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.number.R
@@ -19,10 +19,8 @@ import com.example.number.adapters.ShopAdapter
 import com.example.number.databinding.FragmentShopBinding
 import com.example.number.interfaces.ClickListener
 import com.example.number.model.ShopEntity
-import com.example.number.viewmodels.ShopState
+import com.example.number.viewmodels.states.ShopState
 import com.example.number.viewmodels.ShopViewModel
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ShopFragment : Fragment(), ClickListener {
@@ -62,7 +60,9 @@ class ShopFragment : Fragment(), ClickListener {
                     builder.setNegativeButton(getString(R.string.no)) { dialog, _ ->
                         dialog.dismiss()
                     }
-                    builder.show()
+                    val alertDialog = builder.create()
+                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                    alertDialog.show()
                 }
                 is ShopState.NotEnoughNumbers -> {
                     Toast.makeText(
@@ -101,5 +101,5 @@ fun Fragment.showError(message: String): AlertDialog =
     AlertDialog.Builder(requireContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
         .setMessage(message)
         .setCancelable(true)
-        .setPositiveButton("OK", null)
+        .setPositiveButton(getString(R.string.yes), null)
         .create()

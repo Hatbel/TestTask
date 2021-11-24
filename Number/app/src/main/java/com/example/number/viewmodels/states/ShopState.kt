@@ -1,6 +1,5 @@
-package com.example.number.viewmodels
+package com.example.number.viewmodels.states
 
-import androidx.paging.PagingData
 import com.example.number.model.ShopEntity
 
 sealed class ShopState {
