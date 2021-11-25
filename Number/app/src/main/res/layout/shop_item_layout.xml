@@ -16,12 +16,13 @@
 
         <TextView
             android:id="@+id/name_text_view"
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,16 +30,17 @@
             android:id="@+id/price_text_view"
             android:layout_width="200dp"
             android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingStart="60dp"
-            android:paddingEnd="60dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="10dp"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ispurchased_image"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_circle_small" />
     </androidx.appcompat.widget.LinearLayoutCompat>

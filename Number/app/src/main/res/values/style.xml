@@ -9,5 +9,23 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:textSize">14sp</item>
         <item name="android:background">@drawable/dialog_design</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:font">@font/montserrat</item>
+        <item name="android:fontStyle">@font/montserrat</item>
+        <item name="android:textAppearanceSmall">@style/MyTextAppearance</item>
+        <item name="android:textAppearanceMedium">@style/MyTextAppearance</item>
+        <item name="android:textAppearanceLarge">@style/MyTextAppearance</item>
+    </style>
+
+    <style name="MyTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
     </style>
 </resources>

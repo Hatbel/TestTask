@@ -2,11 +2,13 @@ package com.example.number.fragments
 
 import android.app.AlertDialog
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -40,6 +42,23 @@ class TreeFragment : Fragment() {
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_binary_tree, it.theme)
                     binding.tree.setImageDrawable(drawable)
                 }
+                is TreeState.LeafsAll -> {
+                    val drawable =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_binary_tree, it.theme)
+                    binding.tree.setImageDrawable(drawable)
+                    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
+                    builder.setTitle(getString(R.string.end))
+                    builder.setMessage(getString(R.string.yourTime) + viewModel.getPlayTime() + getString(R.string.endDescription))
+                    builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    val alertDialog = builder.create()
+                    val message: TextView? = view?.findViewById(android.R.id.message)
+                    val customFont = Typeface.createFromAsset(activity?.assets, "montserrat.ttf")
+                    message?.typeface = customFont;
+                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                    alertDialog.show()
+                }
             }
         })
         binding.showRulesButton.setOnClickListener{
@@ -50,6 +69,9 @@ class TreeFragment : Fragment() {
                 dialog.dismiss()
             }
             val alertDialog = builder.create()
+            val message: TextView? = view?.findViewById(android.R.id.message)
+            val customFont = Typeface.createFromAsset(activity?.assets, "montserrat.ttf")
+            message?.typeface = customFont;
             alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             alertDialog.show()
         }

@@ -27,19 +27,21 @@ class MainViewModel(
     }
 
     fun addToClicker() {
-        try {
+
             var isFoundAmount = 0
             viewModelScope.launch {
                 val groups = repository.getBinaryNumbersGroups()
                 for (group in groups) {
                     if (group.isCollected) isFoundAmount += 1
                 }
+                try {
                 val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sessionManager.dateOfClose)
                 sessionManager.counterSaver =
                     (sessionManager.counterSaver + (Date().time - date.time) / (1000 * 60) * isFoundAmount).toInt()
+                } catch (e: Exception) {
+                    Log.e("no date yet ", "date = null")
+                }
             }
-        } catch (e: Exception) {
-            Log.e("no date yet ", "date = null")
-        }
+
     }
 }

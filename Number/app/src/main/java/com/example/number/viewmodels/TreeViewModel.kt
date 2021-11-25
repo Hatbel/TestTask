@@ -9,6 +9,8 @@ import com.example.number.modules.ThemeHelper
 import com.example.number.repository.NumbersRepository
 import com.example.number.viewmodels.states.TreeState
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TreeViewModel(
     private val sessionManager: SessionManager,
@@ -19,7 +21,8 @@ class TreeViewModel(
     private val _state = MutableLiveData<TreeState>()
     val state: LiveData<TreeState>
         get() = _state
-    init{
+
+    init {
         _state.postValue(TreeState.Idle)
         var isFoundAmount = 0
         viewModelScope.launch {
@@ -27,8 +30,17 @@ class TreeViewModel(
             for (group in groups) {
                 if (group.isCollected) isFoundAmount += 1
             }
-            _state.postValue(TreeState.Leafs(themeHelper.generateTheme(isFoundAmount)))
+            if (isFoundAmount == 40) {
+                _state.postValue(TreeState.LeafsAll(themeHelper.generateTheme(isFoundAmount)))
+            } else {
+                _state.postValue(TreeState.Leafs(themeHelper.generateTheme(isFoundAmount)))
+            }
         }
+    }
+
+    fun getPlayTime() : Int{
+        val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sessionManager.firstOpenDate)
+        return (sessionManager.counterSaver + (Date().time - date.time) / (1000 * 60 * 60 * 24)).toInt()
     }
 
 }
