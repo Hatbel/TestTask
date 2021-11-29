@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.example.number.R
 import com.example.number.databinding.FragmentClickerBinding
-import com.example.number.viewmodels.states.ClickerState
 import com.example.number.viewmodels.ClickerViewModel
+import com.example.number.viewmodels.states.ClickerState
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -27,7 +30,7 @@ class ClickerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         navController = NavHostFragment.findNavController(this)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_clicker, container, false)
@@ -47,7 +50,7 @@ class ClickerFragment : Fragment() {
         val animZeroSecond: AnimatedVectorDrawableCompat? =
             AnimatedVectorDrawableCompat.create(requireContext(), R.drawable.animator_for_zero)
         binding.animationZeroSecondImageView.setImageDrawable(animZeroSecond)
-        binding.clickerScreen.setOnClickListener() {
+        binding.clickerScreen.setOnClickListener {
             viewModel.getStateForAnim()
             binding.clickerNumber.text =
                 (binding.clickerNumber.text.toString().toInt() + viewModel.getBuster()).toString()
@@ -55,21 +58,20 @@ class ClickerFragment : Fragment() {
         binding.submitBinaryButton.setOnClickListener {
             viewModel.saveClickerNumber(binding.clickerNumber.text.toString().toInt())
             viewModel.checkNumber()
-
-
-            //костыль  костыль  костыль  костыль  костыль  костыль  костыль
             viewModel.updateGroups()
-            viewModel.updateGroups()
-            //костыль  костыль  костыль  костыль  костыль  костыль  костыль
 
         }
-        viewModel.state.observe(viewLifecycleOwner, Observer {
+        viewModel.state.observe(viewLifecycleOwner, {
             when (it) {
                 is ClickerState.NumberNotFound -> {
-                    //Toast
+                    animZeroFirst?.start()
+                    animZeroSecond?.start()
                 }
                 is ClickerState.NumberFound -> {
-                    //Toast
+                    viewModel.updateGroups()
+                    animOneFirst?.start()
+                    animOneSecond?.start()
+                    animOneThird?.start()
                 }
                 is ClickerState.FirstForAnim -> {
                     animOneFirst?.start()
@@ -88,6 +90,13 @@ class ClickerFragment : Fragment() {
                 }
             }
         })
+
+        val adView = AdView(requireContext())
+        adView.adSize = AdSize.BANNER
+        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
 
         return binding.root
     }

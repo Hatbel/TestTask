@@ -36,7 +36,7 @@ class BinaryNumbersAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(binaryNumber: BinaryNumberDB?) {
             binding.numberTextView.text = binaryNumber?.binaryNumber.toString()
-            if(binaryNumber?.isFound == true){
+            if (binaryNumber?.isFound == true) {
                 binding.isFoundImage.setImageResource(R.drawable.ic_check)
             } else {
                 binding.isFoundImage.setImageResource(R.drawable.ic_circle_small)

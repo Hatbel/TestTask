@@ -3,17 +3,17 @@
     <item
         android:id="@+id/binaryNumbersFragment"
         android:icon="@drawable/ic_ten"
-        android:title="Bins" />
+        android:title="@string/numbers" />
     <item
         android:id="@+id/clickerFragment"
         android:icon="@drawable/ic_tap"
-        android:title="Clicker" />
+        android:title="@string/clicker" />
     <item
         android:id="@+id/shopFragment"
         android:icon="@drawable/ic_cart"
-        android:title="Shop" />
+        android:title="@string/shop" />
     <item
         android:id="@+id/treeFragment"
         android:icon="@drawable/ic_tree"
-        android:title="Tree" />
+        android:title="@string/tree" />
 </menu>

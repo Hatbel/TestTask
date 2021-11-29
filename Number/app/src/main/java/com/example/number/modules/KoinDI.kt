@@ -21,7 +21,7 @@ val dataBaseModule = module {
     }
 }
 val appModule = module {
-    single { NumbersRepository(get(), get(), get(), get()) }
+    single { NumbersRepository(get(), get(), get()) }
     single { SessionManager(androidContext()) }
     single { BinaryGroupDataSource(get()) }
     single { BinaryNumbersPagingDataSource(get(), get()) }
@@ -31,8 +31,8 @@ val appModule = module {
 val viewModelsModule = module {
     viewModel { ClickerViewModel(get(), get()) }
     viewModel { ShopViewModel(get(), get()) }
-    viewModel { BinaryNumbersViewModel(get(), get(), get()) }
-    viewModel { GroupNumbersViewModel(get(), get(), get()) }
+    viewModel { BinaryNumbersViewModel(get(), get()) }
+    viewModel { GroupNumbersViewModel(get()) }
     viewModel { TreeViewModel(get(), get(), get()) }
     viewModel { MainViewModel(get(), get()) }
 }

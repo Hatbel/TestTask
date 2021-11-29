@@ -32,7 +32,7 @@ class ClickerViewModel(
 
     fun getBuster() = sessionManager.buster
 
-    fun getStateForAnim(){
+    fun getStateForAnim() {
         when (Random.nextInt(0, 5)) {
             0 -> _state.postValue(ClickerState.FirstForAnim)
             1 -> _state.postValue(ClickerState.SecondForAnim)
@@ -40,7 +40,6 @@ class ClickerViewModel(
             3 -> _state.postValue(ClickerState.ForthForAnim)
             4 -> _state.postValue(ClickerState.FifthForAnim)
         }
-
     }
 
     fun updateGroups() {

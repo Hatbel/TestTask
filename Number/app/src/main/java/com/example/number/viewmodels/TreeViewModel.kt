@@ -38,7 +38,7 @@ class TreeViewModel(
         }
     }
 
-    fun getPlayTime() : Int{
+    fun getPlayTime(): Int {
         val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sessionManager.firstOpenDate)
         return (sessionManager.counterSaver + (Date().time - date.time) / (1000 * 60 * 60 * 24)).toInt()
     }

@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
 
 class BinaryNumbersViewModel(
     private val sessionManager: SessionManager,
-    private val repository: NumbersRepository,
     private var binaryGroupDataSource: BinaryGroupDataSource
 ) : ViewModel() {
     var binaryGroups = Pager(PagingConfig(15)) { binaryGroupDataSource }

@@ -1,16 +1,12 @@
 package com.example.number.repository
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.number.database.BinaryGroupDao
-import com.example.number.database.ShopDao
 import com.example.number.model.BinaryNumberGroup
-import com.example.number.model.ShopEntity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
-class BinaryGroupDataSource(private val binGroupsDao: BinaryGroupDao) : PagingSource<Int, BinaryNumberGroup>() {
+class BinaryGroupDataSource(private val binGroupsDao: BinaryGroupDao) :
+    PagingSource<Int, BinaryNumberGroup>() {
 
     private companion object {
         const val INITIAL_PAGE_INDEX = 0
@@ -18,13 +14,8 @@ class BinaryGroupDataSource(private val binGroupsDao: BinaryGroupDao) : PagingSo
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, BinaryNumberGroup> {
         val position = params.key ?: INITIAL_PAGE_INDEX
-        val binGroups: List<BinaryNumberGroup> = binGroupsDao.getBinaryNumbersGroups(params.loadSize)
-        val nextKey =
-            if (binGroups.isEmpty()) {
-                null
-            } else {
-                position + params.loadSize
-            }
+        val binGroups: List<BinaryNumberGroup> =
+            binGroupsDao.getBinaryNumbersGroups(params.loadSize)
         return try {
             LoadResult.Page(
                 data = binGroups,

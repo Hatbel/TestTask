@@ -3,18 +3,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_number">0</string>
-    <string name="submit_binary">Submit Binary</string>
+    <string name="submit_binary">111101 111111</string>
     <string name="unknownError">Something went wrong</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="buy">Are you sure you want to purchase this buster?</string>
     <string name="confirmation">Confirmation</string>
     <string name="noMoneyNoHoney">not enough numbers, click more</string>
-    <string name="confirm">confirm</string>
+    <string name="confirm">11011111101011</string>
     <string name="ok">OK</string>
-    <string name="goal">Goals</string>
+    <string name="goal">1101000110010111011001110000</string>
     <string name="end">You saved a tree</string>
     <string name="yourTime">Congratulations, you have saved the tree.\nYou spend </string>
     <string name="endDescription"> fFor this time you could save some tress in real life</string>
-    <string name="goalDescription"> In this game you need to save this tree from dying.\n\nTo save tis tree you need to collect all binary numbers that are lost in decimals.\n\nList of all binaries contain 40 groups of 25 number, when you collect a group you make one digital leaf alive.\n\nEach leaf will help you to gain clicks when you are not in the app by adding numbers each minute.\n\nIn the shop you can buy busters for clicked numbers to help you.\n\nSave this tree</string>
+    <string name="goalDescription"> In this game you need to save a digital tree from dying.\n\nTo save this tree you need to collect all binary numbers that are lost in decimals.\n\nList of all binary numbers contain 40 groups of 25 numbers, when you collect a group you make one digital leaf alive.\n\nEach leaf will help you to gain clicks when you are not in the app by adding numbers each minute.\n\nIn the shop you can buy busters to increase or decrease clicker.\n\nHelp to save this tree</string>
+    <string name="tree">Tree</string>
+    <string name="shop">Shop</string>
+    <string name="clicker">Clicker</string>
+    <string name="numbers">List</string>
 </resources>

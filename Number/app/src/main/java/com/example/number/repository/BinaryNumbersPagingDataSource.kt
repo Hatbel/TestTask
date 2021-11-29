@@ -2,13 +2,14 @@ package com.example.number.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.number.database.BinaryGroupDao
 import com.example.number.database.BinaryNumberDao
 import com.example.number.model.BinaryNumberDB
-import com.example.number.model.BinaryNumberGroup
 import com.example.number.modules.SessionManager
 
-class BinaryNumbersPagingDataSource(private val binNumbersDao: BinaryNumberDao, private val sessionManager: SessionManager) : PagingSource<Int, BinaryNumberDB>() {
+class BinaryNumbersPagingDataSource(
+    private val binNumbersDao: BinaryNumberDao,
+    private val sessionManager: SessionManager
+) : PagingSource<Int, BinaryNumberDB>() {
 
     private companion object {
         const val INITIAL_PAGE_INDEX = 0
@@ -16,13 +17,8 @@ class BinaryNumbersPagingDataSource(private val binNumbersDao: BinaryNumberDao, 
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, BinaryNumberDB> {
         val position = params.key ?: INITIAL_PAGE_INDEX
-        val binGroups: List<BinaryNumberDB> = binNumbersDao.getNumbersByGroupId(params.loadSize,sessionManager.groupId)
-        val nextKey =
-            if (binGroups.isEmpty()) {
-                null
-            } else {
-                position + params.loadSize
-            }
+        val binGroups: List<BinaryNumberDB> =
+            binNumbersDao.getNumbersByGroupId(params.loadSize, sessionManager.groupId)
         return try {
             LoadResult.Page(
                 data = binGroups,

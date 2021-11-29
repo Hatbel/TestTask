@@ -11,8 +11,6 @@ import com.example.number.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.android.viewmodel.ext.android.viewModel
 
-private const val NUM_PAGES = 4
-
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<MainViewModel>()

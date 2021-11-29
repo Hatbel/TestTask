@@ -10,8 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.number.R
@@ -19,8 +17,8 @@ import com.example.number.adapters.ShopAdapter
 import com.example.number.databinding.FragmentShopBinding
 import com.example.number.interfaces.ClickListener
 import com.example.number.model.ShopEntity
-import com.example.number.viewmodels.states.ShopState
 import com.example.number.viewmodels.ShopViewModel
+import com.example.number.viewmodels.states.ShopState
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ShopFragment : Fragment(), ClickListener {
@@ -28,17 +26,19 @@ class ShopFragment : Fragment(), ClickListener {
     private val viewModel by viewModel<ShopViewModel>()
 
     private lateinit var adapter: ShopAdapter
-    private lateinit var navController: NavController
     private lateinit var binding: FragmentShopBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shop, container, false)
-        binding.shopRecyclerView.addItemDecoration( DividerItemDecoration(requireContext(),
-            DividerItemDecoration.VERTICAL)
+        binding.shopRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                DividerItemDecoration.VERTICAL
+            )
         )
         adapter = ShopAdapter(arrayListOf(), this)
         binding.shopRecyclerView.apply {
@@ -46,7 +46,7 @@ class ShopFragment : Fragment(), ClickListener {
             adapter = adapter
         }
         binding.shopRecyclerView.adapter = adapter
-        viewModel.state.observe(viewLifecycleOwner, Observer {
+        viewModel.state.observe(viewLifecycleOwner, {
             when (it) {
                 is ShopState.PurchaseItem -> {
                     val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)

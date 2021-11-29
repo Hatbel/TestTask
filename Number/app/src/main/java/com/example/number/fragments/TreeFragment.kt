@@ -12,11 +12,10 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.example.number.R
 import com.example.number.databinding.FragmentTreeBinding
-import com.example.number.viewmodels.states.TreeState
 import com.example.number.viewmodels.TreeViewModel
+import com.example.number.viewmodels.states.TreeState
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -24,7 +23,6 @@ class TreeFragment : Fragment() {
 
     private lateinit var binding: FragmentTreeBinding
     private val viewModel by viewModel<TreeViewModel>()
-    private lateinit var alertDialog: AlertDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +30,7 @@ class TreeFragment : Fragment() {
     ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_tree, container, false)
-        viewModel.state.observe(viewLifecycleOwner, Observer {
+        viewModel.state.observe(viewLifecycleOwner, {
             when (it) {
                 is TreeState.Idle -> {
 
@@ -48,20 +46,24 @@ class TreeFragment : Fragment() {
                     binding.tree.setImageDrawable(drawable)
                     val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
                     builder.setTitle(getString(R.string.end))
-                    builder.setMessage(getString(R.string.yourTime) + viewModel.getPlayTime() + getString(R.string.endDescription))
+                    builder.setMessage(
+                        getString(R.string.yourTime) + viewModel.getPlayTime() + getString(
+                            R.string.endDescription
+                        )
+                    )
                     builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
                         dialog.dismiss()
                     }
                     val alertDialog = builder.create()
                     val message: TextView? = view?.findViewById(android.R.id.message)
                     val customFont = Typeface.createFromAsset(activity?.assets, "montserrat.ttf")
-                    message?.typeface = customFont;
+                    message?.typeface = customFont
                     alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                     alertDialog.show()
                 }
             }
         })
-        binding.showRulesButton.setOnClickListener{
+        binding.showRulesButton.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
             builder.setTitle(getString(R.string.goal))
             builder.setMessage(getString(R.string.goalDescription))
@@ -71,7 +73,7 @@ class TreeFragment : Fragment() {
             val alertDialog = builder.create()
             val message: TextView? = view?.findViewById(android.R.id.message)
             val customFont = Typeface.createFromAsset(activity?.assets, "montserrat.ttf")
-            message?.typeface = customFont;
+            message?.typeface = customFont
             alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             alertDialog.show()
         }

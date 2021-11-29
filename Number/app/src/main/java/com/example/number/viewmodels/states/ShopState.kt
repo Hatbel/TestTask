@@ -7,7 +7,6 @@ sealed class ShopState {
     object Loading : ShopState()
     object PurchaseItem : ShopState()
     object EnableItem : ShopState()
-    object DeactivateItem : ShopState()
     object NotEnoughNumbers : ShopState()
     data class Error(val error: String?) : ShopState()
 
