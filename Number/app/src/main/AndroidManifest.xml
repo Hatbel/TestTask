@@ -14,12 +14,14 @@
             android:name= "com.google.android.gms.ads.APPLICATION_ID"
             android:value= "ca-app-pub-3940256099942544~6300978111"/>
         <activity android:name=".activities.SplashScreen"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <meta-data
