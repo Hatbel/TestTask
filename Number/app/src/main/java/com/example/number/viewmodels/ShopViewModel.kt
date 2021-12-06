@@ -22,7 +22,10 @@ class ShopViewModel(
 
     init {
         viewModelScope.launch {
-            _state.postValue(ShopState.Loading)
+            if(sessionManager.isShopFirstOpen) {
+                _state.postValue(ShopState.FirstShopLaunch)
+                sessionManager.isShopFirstOpen = false
+            }
             shopEntities.clear()
             shopEntities.addAll(repository.getAllShopEntities(25))
             _state.postValue(ShopState.Idle(shopEntities))

@@ -32,8 +32,15 @@ class TreeFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_tree, container, false)
         viewModel.state.observe(viewLifecycleOwner, {
             when (it) {
-                is TreeState.Idle -> {
-
+                is TreeState.TreeFirstOpen -> {
+                    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
+                    builder.setMessage(getString(R.string.treeDescription))
+                    builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    val alertDialog = builder.create()
+                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                    alertDialog.show()
                 }
                 is TreeState.Leafs -> {
                     val drawable =

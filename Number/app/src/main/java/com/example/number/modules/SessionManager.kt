@@ -9,6 +9,10 @@ const val GROUP_ID = "group_id"
 const val DATE_OF_CLOSE = "date_of_close"
 const val FIRST_OPEN_DATE = "first_open_date"
 const val IS_FIRST_OPEN = "is_first_open"
+const val IS_CLICKER_FIRST_OPEN = "is_clicker_first_open"
+const val IS_SHOP_FIRST_OPEN = "is_shop_first_open"
+const val IS_BINS_FIRST_OPEN = "is_bins_first_open"
+const val IS_TREE_FIRST_OPEN = "is_tree_first_open"
 
 class SessionManager(context: Context) {
     private val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
@@ -31,6 +35,30 @@ class SessionManager(context: Context) {
             putBoolean(IS_FIRST_OPEN, value)
         }
 
+    var isClickerFirstOpen: Boolean
+        get() = prefs.getBoolean(IS_CLICKER_FIRST_OPEN, true)
+        set(value) = prefs.edit {
+            putBoolean(IS_CLICKER_FIRST_OPEN, value)
+        }
+
+    var isShopFirstOpen: Boolean
+        get() = prefs.getBoolean(IS_SHOP_FIRST_OPEN, true)
+        set(value) = prefs.edit {
+            putBoolean(IS_SHOP_FIRST_OPEN, value)
+        }
+
+    var isBinsFirstOpen: Boolean
+        get() = prefs.getBoolean(IS_BINS_FIRST_OPEN, true)
+        set(value) = prefs.edit {
+            putBoolean(IS_BINS_FIRST_OPEN, value)
+        }
+
+    var isTreeFirstOpen: Boolean
+        get() = prefs.getBoolean(IS_TREE_FIRST_OPEN, true)
+        set(value) = prefs.edit {
+            putBoolean(IS_TREE_FIRST_OPEN, value)
+        }
+
     var counterSaver: Int
         get() = prefs.getInt(COUNTER_SAVER, 1)
         set(value) = prefs.edit {
@@ -48,13 +76,4 @@ class SessionManager(context: Context) {
         set(value) = prefs.edit {
             putInt(BUSTER, value)
         }
-
-    fun clearPrefs() {
-        prefs.edit().remove(COUNTER_SAVER).apply()
-        prefs.edit().remove(BUSTER).apply()
-        prefs.edit().remove(GROUP_ID).apply()
-        prefs.edit().remove(DATE_OF_CLOSE).apply()
-        prefs.edit().remove(FIRST_OPEN_DATE).apply()
-        prefs.edit().remove(IS_FIRST_OPEN).apply()
-    }
 }

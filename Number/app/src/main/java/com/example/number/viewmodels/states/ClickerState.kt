@@ -8,4 +8,5 @@ sealed class ClickerState {
     object ThirdForAnim : ClickerState()
     object ForthForAnim : ClickerState()
     object FifthForAnim : ClickerState()
+    object FirstClickerOpen : ClickerState()
 }

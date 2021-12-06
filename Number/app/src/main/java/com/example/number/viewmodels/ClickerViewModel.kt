@@ -21,6 +21,12 @@ class ClickerViewModel(
     val state: LiveData<ClickerState>
         get() = _state
 
+    init {
+        if(sessionManager.isClickerFirstOpen){
+            _state.postValue(ClickerState.FirstClickerOpen)
+            sessionManager.isClickerFirstOpen = false
+        }
+    }
     fun getSavedNumber(): Int {
         return sessionManager.counterSaver
 

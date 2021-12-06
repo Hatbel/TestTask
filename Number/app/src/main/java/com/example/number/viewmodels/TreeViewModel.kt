@@ -23,7 +23,10 @@ class TreeViewModel(
         get() = _state
 
     init {
-        _state.postValue(TreeState.Idle)
+        if(sessionManager.isTreeFirstOpen) {
+            _state.postValue(TreeState.TreeFirstOpen)
+            sessionManager.isTreeFirstOpen = false
+        }
         var isFoundAmount = 0
         viewModelScope.launch {
             val groups = repository.getBinaryNumbersGroups()
