@@ -5,6 +5,8 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +24,8 @@ import com.example.number.model.ShopEntity
 import com.example.number.viewmodels.ShopViewModel
 import com.example.number.viewmodels.states.ShopState
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
+import kotlin.concurrent.schedule
 
 class ShopFragment : Fragment(), ClickListener {
 
@@ -79,14 +83,7 @@ class ShopFragment : Fragment(), ClickListener {
                     showError(resources.getString(R.string.unknownError)).show()
                 }
                 is ShopState.FirstShopLaunch -> {
-                    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
-                    builder.setMessage(getString(R.string.shopDescription))
-                    builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    val alertDialog = builder.create()
-                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    alertDialog.show()
+                    showGoal(getString(R.string.shopDescription))
                 }
                 is ShopState.Idle -> {
                     adapter.addBooks(it.shopEntities as MutableList<ShopEntity>)
@@ -106,10 +103,3 @@ class ShopFragment : Fragment(), ClickListener {
     }
 
 }
-
-fun Fragment.showError(message: String): AlertDialog =
-    AlertDialog.Builder(requireContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
-        .setMessage(message)
-        .setCancelable(true)
-        .setPositiveButton(getString(R.string.yes), null)
-        .create()

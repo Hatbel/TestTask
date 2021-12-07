@@ -25,6 +25,8 @@ import com.example.number.viewmodels.states.ClickerState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
+import kotlin.concurrent.schedule
 
 class BinaryNumbersFragment : Fragment(), ClickListener {
 
@@ -50,14 +52,7 @@ class BinaryNumbersFragment : Fragment(), ClickListener {
         viewModel.state.observe(viewLifecycleOwner, {
             when (it) {
                 BinsState.FirstBinsOpen -> {
-                    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
-                    builder.setMessage(getString(R.string.binsDescription))
-                    builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    val alertDialog = builder.create()
-                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    alertDialog.show()
+                    showGoal(getString(R.string.binsDescription))
                 }
                 BinsState.Idle -> {
                 }

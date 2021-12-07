@@ -5,6 +5,8 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,14 +96,7 @@ class ClickerFragment : Fragment() {
                     animZeroSecond?.start()
                 }
                 ClickerState.FirstClickerOpen -> {
-                    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
-                    builder.setMessage(getString(R.string.clickerDescription))
-                    builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    val alertDialog = builder.create()
-                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    alertDialog.show()
+                    showGoal(getString(R.string.clickerDescription))
                 }
             }
         })
@@ -130,4 +125,23 @@ class ClickerFragment : Fragment() {
         super.onResume()
         binding.clickerNumber.text = viewModel.getSavedNumber().toString()
     }
+}
+fun Fragment.showError(message: String): AlertDialog =
+    AlertDialog.Builder(requireContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
+        .setMessage(message)
+        .setCancelable(true)
+        .setPositiveButton(getString(R.string.yes), null)
+        .create()
+
+fun Fragment.showGoal(message: String){
+    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
+    builder.setMessage(message)
+    builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
+        dialog.dismiss()
+    }
+    val alertDialog = builder.create()
+    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    Handler(Looper.getMainLooper()).postDelayed({
+        alertDialog.show()
+    }, 1000)
 }
