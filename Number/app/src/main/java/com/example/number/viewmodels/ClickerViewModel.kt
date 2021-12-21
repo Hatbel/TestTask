@@ -1,5 +1,6 @@
 package com.example.number.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,8 @@ import com.example.number.modules.SessionManager
 import com.example.number.repository.NumbersRepository
 import com.example.number.viewmodels.states.ClickerState
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.random.Random
 
 class ClickerViewModel(
@@ -22,14 +25,36 @@ class ClickerViewModel(
         get() = _state
 
     init {
-        if(sessionManager.isClickerFirstOpen){
+        if (sessionManager.isClickerFirstOpen) {
             _state.postValue(ClickerState.FirstClickerOpen)
             sessionManager.isClickerFirstOpen = false
         }
+        if (!sessionManager.isAppOpened) {
+            var isFoundAmount = 0
+            viewModelScope.launch {
+                val groups = repository.getBinaryNumbersGroups()
+                for (group in groups) {
+                    if (group.isCollected) isFoundAmount += 1
+                }
+                try {
+                    val date = SimpleDateFormat(
+                        "yyyy-MM-dd HH:mm:ss",
+                        Locale.US
+                    ).parse(sessionManager.dateOfClose)
+                    val addition = ((Date().time - date.time) / (1000 * 60) * isFoundAmount).toInt()
+                    if (addition > 0) {
+                        _state.postValue(ClickerState.Addition(addition))
+                    }
+                    sessionManager.isAppOpened = true
+                } catch (e: Exception) {
+                    Log.e("no date yet ", "date = null")
+                }
+            }
+        }
     }
+
     fun getSavedNumber(): Int {
         return sessionManager.counterSaver
-
     }
 
     fun saveClickerNumber(number: Int) {

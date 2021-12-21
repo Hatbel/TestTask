@@ -9,4 +9,5 @@ sealed class ClickerState {
     object ForthForAnim : ClickerState()
     object FifthForAnim : ClickerState()
     object FirstClickerOpen : ClickerState()
+    data class Addition(val addition: Int) : ClickerState()
 }

@@ -1,7 +1,6 @@
 package com.example.number.activities
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
@@ -54,13 +53,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
         viewModel.firstOpen()
-        viewModel.addToClicker()
 
     }
 
     override fun onStop() {
         viewModel.saveCloseDate()
-        Log.e("no datasdasdasdasdasdsae yet ", "date = null")
         super.onStop()
     }
 }

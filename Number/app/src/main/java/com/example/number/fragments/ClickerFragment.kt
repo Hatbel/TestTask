@@ -2,7 +2,6 @@ package com.example.number.fragments
 
 import android.app.AlertDialog
 import android.graphics.Color
-import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +9,6 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -98,6 +96,21 @@ class ClickerFragment : Fragment() {
                 ClickerState.FirstClickerOpen -> {
                     showGoal(getString(R.string.clickerDescription))
                 }
+                is ClickerState.Addition -> {
+                    val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
+                    builder.setTitle(getString(R.string.bonus))
+                    builder.setMessage(getString(R.string.plus) + it.addition + getString(R.string.plus1))
+                    builder.setNegativeButton(getString(R.string.gain)) { _, _ ->
+                        binding.clickerNumber.text =
+                            (binding.clickerNumber.text.toString().toInt() + it.addition).toString()
+                    }
+                    val alertDialog = builder.create()
+                    alertDialog.setCancelable(false)
+                    alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        alertDialog.show()
+                    }, 100)
+                }
             }
         })
 
@@ -126,6 +139,7 @@ class ClickerFragment : Fragment() {
         binding.clickerNumber.text = viewModel.getSavedNumber().toString()
     }
 }
+
 fun Fragment.showError(message: String): AlertDialog =
     AlertDialog.Builder(requireContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
         .setMessage(message)
@@ -133,13 +147,14 @@ fun Fragment.showError(message: String): AlertDialog =
         .setPositiveButton(getString(R.string.yes), null)
         .create()
 
-fun Fragment.showGoal(message: String){
+fun Fragment.showGoal(message: String) {
     val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
     builder.setMessage(message)
     builder.setNegativeButton(getString(R.string.confirm)) { dialog, _ ->
         dialog.dismiss()
     }
     val alertDialog = builder.create()
+    alertDialog.setCancelable(false)
     alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     Handler(Looper.getMainLooper()).postDelayed({
         alertDialog.show()

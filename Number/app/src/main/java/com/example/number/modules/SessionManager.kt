@@ -13,6 +13,7 @@ const val IS_CLICKER_FIRST_OPEN = "is_clicker_first_open"
 const val IS_SHOP_FIRST_OPEN = "is_shop_first_open"
 const val IS_BINS_FIRST_OPEN = "is_bins_first_open"
 const val IS_TREE_FIRST_OPEN = "is_tree_first_open"
+const val IS_APP_OPENED = "is_app_opened"
 
 class SessionManager(context: Context) {
     private val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
@@ -33,6 +34,12 @@ class SessionManager(context: Context) {
         get() = prefs.getBoolean(IS_FIRST_OPEN, true)
         set(value) = prefs.edit {
             putBoolean(IS_FIRST_OPEN, value)
+        }
+
+    var isAppOpened: Boolean
+        get() = prefs.getBoolean(IS_APP_OPENED, true)
+        set(value) = prefs.edit {
+            putBoolean(IS_APP_OPENED, value)
         }
 
     var isClickerFirstOpen: Boolean
