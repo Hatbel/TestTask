@@ -41,14 +41,14 @@ class ClickerViewModel(
                         "yyyy-MM-dd HH:mm:ss",
                         Locale.US
                     ).parse(sessionManager.dateOfClose)
-                    val addition = ((Date().time - date.time) / (1000 * 60) * isFoundAmount).toInt()
+                    val addition = ((Date().time - date.time) / (1000 * 60) * isFoundAmount * sessionManager.buster).toInt()
                     if (addition > 0) {
                         _state.postValue(ClickerState.Addition(addition))
                     }
-                    sessionManager.isAppOpened = true
                 } catch (e: Exception) {
                     Log.e("no date yet ", "date = null")
                 }
+                sessionManager.isAppOpened = true
             }
         }
     }

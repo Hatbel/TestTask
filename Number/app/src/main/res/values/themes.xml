@@ -14,21 +14,37 @@
     </style>
     <style name="black_leaf1">
         <item name="leaf1">@color/black</item>
+        <item name="leaf5">@color/white</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf2">
         <item name="leaf1">@color/black</item>
         <item name="leaf2">@color/black</item>
+        <item name="leaf5">@color/white</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf3">
         <item name="leaf1">@color/black</item>
         <item name="leaf2">@color/black</item>
         <item name="leaf3">@color/black</item>
+        <item name="leaf5">@color/white</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf4">
         <item name="leaf1">@color/black</item>
         <item name="leaf2">@color/black</item>
         <item name="leaf3">@color/black</item>
         <item name="leaf4">@color/black</item>
+        <item name="leaf5">@color/white</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf5">
         <item name="leaf1">@color/black</item>
@@ -36,6 +52,9 @@
         <item name="leaf3">@color/black</item>
         <item name="leaf4">@color/black</item>
         <item name="leaf5">@color/black</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf6">
         <item name="leaf1">@color/black</item>
@@ -44,6 +63,9 @@
         <item name="leaf4">@color/black</item>
         <item name="leaf5">@color/black</item>
         <item name="leaf6">@color/black</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf7">
         <item name="leaf1">@color/black</item>
@@ -53,6 +75,9 @@
         <item name="leaf5">@color/black</item>
         <item name="leaf6">@color/black</item>
         <item name="leaf7">@color/black</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf8">
         <item name="leaf1">@color/black</item>
@@ -63,6 +88,9 @@
         <item name="leaf6">@color/black</item>
         <item name="leaf7">@color/black</item>
         <item name="leaf8">@color/black</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf9">
         <item name="leaf1">@color/black</item>
@@ -74,6 +102,9 @@
         <item name="leaf7">@color/black</item>
         <item name="leaf8">@color/black</item>
         <item name="leaf9">@color/black</item>
+        <item name="leaf10">@color/white</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf10">
         <item name="leaf1">@color/black</item>
@@ -86,6 +117,8 @@
         <item name="leaf8">@color/black</item>
         <item name="leaf9">@color/black</item>
         <item name="leaf10">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf11">
         <item name="leaf1">@color/black</item>
@@ -99,6 +132,8 @@
         <item name="leaf9">@color/black</item>
         <item name="leaf10">@color/black</item>
         <item name="leaf11">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf12">
         <item name="leaf1">@color/black</item>
@@ -113,6 +148,8 @@
         <item name="leaf10">@color/black</item>
         <item name="leaf11">@color/black</item>
         <item name="leaf12">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf13">
         <item name="leaf1">@color/black</item>
@@ -128,6 +165,8 @@
         <item name="leaf11">@color/black</item>
         <item name="leaf12">@color/black</item>
         <item name="leaf13">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf14">
         <item name="leaf1">@color/black</item>
@@ -144,6 +183,8 @@
         <item name="leaf12">@color/black</item>
         <item name="leaf13">@color/black</item>
         <item name="leaf14">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf15">
         <item name="leaf1">@color/black</item>
@@ -161,6 +202,8 @@
         <item name="leaf13">@color/black</item>
         <item name="leaf14">@color/black</item>
         <item name="leaf15">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf16">
         <item name="leaf1">@color/black</item>
@@ -179,6 +222,8 @@
         <item name="leaf14">@color/black</item>
         <item name="leaf15">@color/black</item>
         <item name="leaf16">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf17">
         <item name="leaf1">@color/black</item>
@@ -198,6 +243,8 @@
         <item name="leaf15">@color/black</item>
         <item name="leaf16">@color/black</item>
         <item name="leaf17">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf18">
         <item name="leaf1">@color/black</item>
@@ -218,6 +265,8 @@
         <item name="leaf16">@color/black</item>
         <item name="leaf17">@color/black</item>
         <item name="leaf18">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf19">
         <item name="leaf1">@color/black</item>
@@ -239,6 +288,8 @@
         <item name="leaf17">@color/black</item>
         <item name="leaf18">@color/black</item>
         <item name="leaf19">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf20">
         <item name="leaf1">@color/black</item>
@@ -261,6 +312,8 @@
         <item name="leaf18">@color/black</item>
         <item name="leaf19">@color/black</item>
         <item name="leaf20">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf21">
         <item name="leaf1">@color/black</item>
@@ -284,6 +337,8 @@
         <item name="leaf19">@color/black</item>
         <item name="leaf20">@color/black</item>
         <item name="leaf21">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf22">
         <item name="leaf1">@color/black</item>
@@ -308,6 +363,8 @@
         <item name="leaf20">@color/black</item>
         <item name="leaf21">@color/black</item>
         <item name="leaf22">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf23">
         <item name="leaf1">@color/black</item>
@@ -333,6 +390,8 @@
         <item name="leaf21">@color/black</item>
         <item name="leaf22">@color/black</item>
         <item name="leaf23">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf24">
         <item name="leaf1">@color/black</item>
@@ -359,6 +418,8 @@
         <item name="leaf22">@color/black</item>
         <item name="leaf23">@color/black</item>
         <item name="leaf24">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf25">
         <item name="leaf1">@color/black</item>
@@ -386,6 +447,8 @@
         <item name="leaf23">@color/black</item>
         <item name="leaf24">@color/black</item>
         <item name="leaf25">@color/black</item>
+        <item name="leaf26">@color/white</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf26">
         <item name="leaf1">@color/black</item>
@@ -414,6 +477,7 @@
         <item name="leaf24">@color/black</item>
         <item name="leaf25">@color/black</item>
         <item name="leaf26">@color/black</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf27">
         <item name="leaf1">@color/black</item>
@@ -443,6 +507,7 @@
         <item name="leaf25">@color/black</item>
         <item name="leaf26">@color/black</item>
         <item name="leaf27">@color/black</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf28">
         <item name="leaf1">@color/black</item>
@@ -473,6 +538,7 @@
         <item name="leaf26">@color/black</item>
         <item name="leaf27">@color/black</item>
         <item name="leaf28">@color/black</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf29">
         <item name="leaf1">@color/black</item>
@@ -504,6 +570,7 @@
         <item name="leaf27">@color/black</item>
         <item name="leaf28">@color/black</item>
         <item name="leaf29">@color/black</item>
+        <item name="leaf30">@color/white</item>
     </style>
     <style name="black_leaf30">
         <item name="leaf1">@color/black</item>
